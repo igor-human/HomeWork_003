@@ -8,19 +8,49 @@ namespace Task_02
 {
     internal class ClassRoom
     {
-        private object pupil1;
-        private object pupil2;
-        private object pupil3;
-        private object pupil4;
-        
-        public ClassRoom(object pupil1, object pupil2, object pupil3, object pupil4)
+        private Pupil[] pupils; // Масив учнів
+
+        public ClassRoom(params Pupil[] pupils)
         {
-            this.pupil1 = pupil1;
-            this.pupil2 = pupil2;
-            this.pupil3 = pupil3;
-            this.pupil4 = pupil4;
+            // Ініціалізація масиву учнів
+            this.pupils = new Pupil[pupils.Length];
+            for (int i = 0; i < pupils.Length; i++)
+            {
+                this.pupils[i] = pupils[i];
+            }
         }
 
+        // Методи для проведення діяльності у класі для кожного учня
+        public void Study()
+        {
+            foreach (var pupil in pupils)
+            {
+                pupil.Study();
+            }
+        }
+        public void Read()
+        {
+            foreach (var pupil in pupils)
+            {
+                pupil.Read();
+            }
+        }
+
+        public void Write()
+        {
+            foreach (var pupil in pupils)
+            {
+                pupil.Write();
+            }
+        }
+
+        public void Relax()
+        {
+            foreach (var pupil in pupils)
+            {
+                pupil.Relax();
+            }
+        }
 
     }
 
